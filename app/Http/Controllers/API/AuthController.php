@@ -3,8 +3,6 @@
 
 namespace App\Http\Controllers\API;
 
-
-
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -17,8 +15,8 @@ class AuthController
     {
         $request->validate([
             'email'    => ['required', 'email'],
-            'password' => ['required', 'min:8'],
-            'device_name' => ['required'],
+            'name' => ['required', 'min:8'],
+            'country_name' => ['required'],
         ]);
 
         $user = User::where('email', $request->email)->first();
@@ -29,7 +27,7 @@ class AuthController
             ]);
         }
 
-        return $user->createToken($request->device_name)->plainTextToken;
+        return $user->createToken($request->country_name)->plainTextToken;
     }
 
     public function logout(Request $request)

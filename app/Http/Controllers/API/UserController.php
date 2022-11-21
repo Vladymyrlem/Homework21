@@ -53,9 +53,9 @@ class UserController
         }
 
         if ($request->has('email')) {
-            $query->where('email', $request->get('email'));
+//            $query->where('email', $request->get('email'));
+            $query->whereJsonContains('email', $request->get('email'))->get();
         }
-
         if ($request->has('is_verified')) {
             $query->whereNotNull('email_verified_at');
         }
@@ -65,7 +65,7 @@ class UserController
         }
 
 
-        return new UserResource($query->get()->first());
+        return new UserResource($query->first());
     }
 
     public function update(Request $request)

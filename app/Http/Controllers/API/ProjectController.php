@@ -74,8 +74,7 @@ class ProjectController
         }
 
 
-        //return ProjectResource::collection($query->distinct()->get());
-        return response($query, 200);
+        return ProjectResource::collection($query->distinct()->get());
     }
 
     public function destroy(Request $request)
