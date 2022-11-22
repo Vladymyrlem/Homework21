@@ -1,0 +1,167 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "CRUD ApplicationAPI",
+        "description": "Project Controller for CRUD API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "api/users/projects": {
+            "post": {
+                "tags": [
+                    "projects"
+                ],
+                "summary": "Create project",
+                "description": "Creating project",
+                "operationId": "store",
+                "requestBody": {
+                    "description": "param project",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Project_1"
+                                    },
+                                    "author_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Project created"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "api/projects/link/users": {
+            "post": {
+                "tags": [
+                    "projects"
+                ],
+                "summary": "Display user by project",
+                "description": "Displaying user by project id",
+                "operationId": "project_id",
+                "requestBody": {
+                    "description": "param project",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Project_1"
+                                    },
+                                    "project_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Link To users by project id"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "api/projects": {
+            "get": {
+                "tags": [
+                    "projects"
+                ],
+                "summary": "Get projects",
+                "description": "Get projects",
+                "operationId": "get_projects",
+                "responses": {
+                    "200": {
+                        "description": "Response JSON array",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Project_name"
+                                        },
+                                        "author": {
+                                            "type": "string",
+                                            "example": "Volodymyr"
+                                        },
+                                        "labels": {
+                                            "type": "JSON",
+                                            "example": "['New Label','new_Label']"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "projects"
+                ],
+                "summary": "Delete project to users",
+                "description": "Delete project to users",
+                "operationId": "delete_project",
+                "parameters": [
+                    {
+                        "name": "projectId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully removed"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    }
+}
