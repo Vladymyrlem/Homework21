@@ -182,6 +182,7 @@ class ProjectController
      * Remove the specified resource from storage.
      *
      * @param Request $request
+     * @throw AuthorizationException
      */
     public function destroy(Request $request)
     {
