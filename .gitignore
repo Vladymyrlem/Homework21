@@ -18,6 +18,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-webpack.mix.js
 resources/assets
 /public/mix-manifest.json
