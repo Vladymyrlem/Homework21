@@ -97,7 +97,27 @@ $mysql->query($query);
 
 
 //Після цього написати sql запити, на створення нового запису в project
+$mysql->query("INSERT INTO projects (`name`, author_id, created_at, updated_at)
+VALUES ('wieuyriwur', 2, '2022-11-30 15:53:22', '2022-12-03 19:22:34')");
+
 
 //UPdate
+$mysql->query("UPDATE projects SET name = 'Testname' where id = 10");
+
 
 //Delete
+$mysql->query("
+DELETE
+FROM label_project
+where project_id = 11;
+");
+$mysql->query("
+DELETE
+FROM project_user
+where project_id = 11;
+");
+$mysql->query("
+DELETE
+FROM projects
+where id = 11;
+");
