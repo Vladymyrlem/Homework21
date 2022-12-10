@@ -9,8 +9,7 @@ class Continent extends Model
 {
     use HasFactory;
 
-    protected $fillable
-        = [
+    protected $fillable = [
             'code',
         ];
 
