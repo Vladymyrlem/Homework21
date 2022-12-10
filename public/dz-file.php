@@ -5,9 +5,10 @@ $password = 'secret';
 $mysql = new PDO($dsn, $username, $password);
 
 // 1.
-try {
     //  Створити транзакцію, в транзакції повинні бути sql запити
     $mysql->beginTransaction();
+try {
+
 
 //a. insert в таблицю user створення юзера
     $query = 'INSERT INTO users (name, email, token, country_id) VALUES (:name, :email, :token, :country_id)';
