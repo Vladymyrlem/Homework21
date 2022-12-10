@@ -10,8 +10,7 @@ class Label extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable
-        = [
+    protected $fillable = [
             'user_id',
             'name',
         ];
